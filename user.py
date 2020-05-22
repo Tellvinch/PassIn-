@@ -1,9 +1,11 @@
-class Credentials:
+class user:
     """
-        Class that generates new instances of credentials
+        Class that generates new instances of users
         """
 
     def cook():
+
+
         print("Welcome to PassIn.What do you want to do?")
         print("1.Create an account")
         print("2.Sign into an existing account ")
@@ -18,7 +20,7 @@ class Credentials:
             password=input("Enter a password:")
             print(f'Your username is {username} and password  {password}')
   
-  
+        print("*****************************************************************************")
 
     cook()  
 
