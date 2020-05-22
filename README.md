@@ -11,4 +11,4 @@ The application was created using python
 ## Support and contact details
 For any  more information contact at tellvinchimani@gmail.com
 ### License
-<a href="https://opensource.org/licenses/MIT">MIT license<a>
+<a href="https://opensource.org/licenses/MIT">MIT license<a>.
