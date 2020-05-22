@@ -1,7 +1,7 @@
 # PassIn-
-An application that allows you to sve all the passswords for any account that you may have so as not to forget.
+An application that allows you to save all the passswords for any account that you may have so as not to forget.
 ## Setup/Installation Requirements
-* follow this [link](https://github.com/Tellvinch/PassIn-)
+* Follow this [link](https://github.com/Tellvinch/PassIn-)
 
 ## Known Bugs
 There are no known bugs in this application
