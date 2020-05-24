@@ -1,24 +1,32 @@
-class User:
+class Credentials:
     """
     Class that generates new instances of contacts.
     """
 
-    users = [] 
+    accounts = [] 
  # Init method up here
-    def save_user(self):
+    def save_accounts(self):
 
         '''
         save_contact method saves contact objects into contact_list
         '''
 
-        User.users.append(self)
+        Credentials.accounts.append(self)
 
-    def __init__(self,username,password):
+    def __init__(self,account_name,account_password):
 
       # docstring removed for simplicity
 
-        self.username = username
-        self.password = passw
+        self.account_name = account_name
+        self.account_password = account_password
+
+    def delete_accounts(self):
+
+        '''
+        delete_account method deletes a saved account from the accounts
+        '''
+
+        Credentials.accounts.remove(self)
 
 
 # from user import user
