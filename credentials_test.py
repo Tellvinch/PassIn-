@@ -60,19 +60,19 @@ class TestCredentials(unittest.TestCase):
         self.User1.delete_accounts()
         self.assertEqual(len(Credentials.accounts), 1)
 
-    def test_find_account_by_account_name(self):
+    def test_find_account_by_name(self):
         '''
         test to check if we can find a contact by phone number and display information
         '''
 
         self.User1.save_accounts()
-        test_credential = Credentials("linkedin", "444")
-        test_credential.save_accounts()
+        test_credentials = Credentials("linkedin", "444")
+        test_credentials.save_accounts()
 
-        found_credential = Credentials.find_by_account_name("Linkedin")
+        found_credential = Credentials.find_by_name("Linkedin")
 
         self.assertEqual(found_credential.account_name,
-                         test_credential.account_name)
+                         test_credentials.account_name)
 
 
 if __name__ == '__main__':

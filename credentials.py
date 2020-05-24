@@ -29,7 +29,7 @@ class Credentials:
         Credentials.accounts.remove(self)
 
     @classmethod
-    def find_by_account_name(cls, account_name):
+    def find_by_name(cls, account_name):
         '''
         Method that takes in a number and returns a contact that matches that number.
 
