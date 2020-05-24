@@ -1,3 +1,6 @@
+import pyperclip
+
+
 class User:
     """
     Class that generates new instances of contacts.
@@ -42,29 +45,29 @@ class User:
             if user.username == username:
                 return user
 
+    @classmethod
+    def user_exist(cls, number):
+        '''
+        Method that checks if a contact exists from the contact list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+        '''
+        for user in cls.users:
+            if user.password == number:
+                return True
 
-# class user:
-#     """
-#         Class that generates new instances of users
-#         """
+        return False
 
-#     def cook():
+    @classmethod
+    def display_users(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.users
 
-
-#         print("Welcome to PassIn.What do you want to do?")
-#         print("1.Create an account")
-#         print("2.Sign into an existing account ")
-#         choice =int(input(">"))
-#         if choice == 1 :
-#             new_username=input("Enter an name you would like to use: ")
-#             new_password=input("Enter a password to use to login: ")
-#             print(f'All done! {new_username}.You can now save your passwords in PassIn-')
-
-#         else:
-#             username=input("Enter your username:")
-#             password=input("Enter a password:")
-#             print(f'Your username is {username} and password  {password}')
-
-#         print("*****************************************************************************")
-
-#     cook()
+    @classmethod
+    def copy_username(cls, username):
+        user_found = User.find_by_name(username)
+        pyperclip.copy(user_found.username)

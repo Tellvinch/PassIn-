@@ -3,17 +3,17 @@ class Credentials:
     Class that generates new instances of contacts.
     """
 
-    accounts = [] 
+    accounts = []
  # Init method up here
-    def save_accounts(self):
 
+    def save_accounts(self):
         '''
         save_contact method saves contact objects into contact_list
         '''
 
         Credentials.accounts.append(self)
 
-    def __init__(self,account_name,account_password):
+    def __init__(self, account_name, account_password):
 
       # docstring removed for simplicity
 
@@ -21,7 +21,6 @@ class Credentials:
         self.account_password = account_password
 
     def delete_accounts(self):
-
         '''
         delete_account method deletes a saved account from the accounts
         '''
@@ -40,8 +39,32 @@ class Credentials:
         '''
 
         for user in cls.accounts:
-            if user.username == account_name:
+            if user.account_name == account_name:
                 return user
+
+    @classmethod
+    def account_exist(cls, number):
+        '''
+        Method that checks if a contact exists from the contact list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+        '''
+        for Credentials in cls.accounts:
+            if Credentials.account_password == number:
+                return True
+
+        return False
+
+    @classmethod
+    def display_accounts(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.accounts
+
+    
 
 
 # from user import user
@@ -69,12 +92,12 @@ class Credentials:
 #         print("Do you want to see what you have saved?")
 #         print("1.Yes please")
 #         print("2.Not now")
-#         view = int(input()) 
+#         view = int(input())
 #         if view == 1:
 #                 print("Name       -     Password")
 #                 print(f'{name}    -     {crepass}')
 #                 # {user.new_username}
 #         else:
-#                 print("Moved to trash!")    
+#                 print("Moved to trash!")
 
 #     password()

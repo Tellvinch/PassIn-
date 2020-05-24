@@ -31,7 +31,7 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.User1.account_name, "Github")
         self.assertEqual(self.User1.account_password, "444")
 
-    def test_save_crentials(self):
+    def test_save_credentials(self):
         '''
         test_save_contact test case to test if the contact object is saved into
          the contact list
@@ -60,19 +60,39 @@ class TestCredentials(unittest.TestCase):
         self.User1.delete_accounts()
         self.assertEqual(len(Credentials.accounts), 1)
 
-    def test_find_account_by_name(self):
+    def test_find_credential_by_name(self):
         '''
         test to check if we can find a contact by phone number and display information
         '''
 
         self.User1.save_accounts()
-        test_credentials = Credentials("linkedin", "444")
+        test_credentials = Credentials("Alicia", "444")
         test_credentials.save_accounts()
 
-        found_credential = Credentials.find_by_name("Linkedin")
+        found_credentials = Credentials.find_by_name("Alicia")
 
-        self.assertEqual(found_credential.account_name,
+        self.assertEqual(found_credentials.account_name,
                          test_credentials.account_name)
+
+    def test_account_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the contact.
+        '''
+
+        self.User1.save_accounts()
+        test_credentials = Credentials("test", "2222")
+        test_credentials.save_accounts()
+
+        account_exists = Credentials.account_exist("2222")
+
+        self.assertTrue(account_exists)
+
+    def test_display_all_accounts(self):
+        '''
+        method that returns a list of all contacts saved
+        '''
+
+        self.assertEqual(Credentials.display_accounts(), Credentials.accounts)
 
 
 if __name__ == '__main__':
