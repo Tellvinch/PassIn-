@@ -3,7 +3,7 @@ class Credentials:
     Class that generates new instances of contacts.
     """
 
-    accounts = []
+    accounts = [one]
  # Init method up here
 
     def save_accounts(self):
@@ -39,7 +39,7 @@ class Credentials:
         '''
 
         for credentials in cls.accounts:
-            if Credentials.account_name == account_name:
+            if credentials.account_name == account_name:
                 return credentials
 
     @classmethod
@@ -63,8 +63,6 @@ class Credentials:
         method that returns the contact list
         '''
         return cls.accounts
-
-    
 
 
 # from user import user

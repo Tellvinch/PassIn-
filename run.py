@@ -10,11 +10,26 @@ def create_user(username, password):
     return new_user
 
 
-def save_users(contact):
+def create_account(account_name, account_password):
+    '''
+    Function to create a new user
+    '''
+    new_account = User(account_name, account_password)
+    return new_account
+
+
+def save_user(user):
     '''
     Function to save user
     '''
-    contact.save_user()
+    user.save_user()
+
+
+def save_accounts(credentials):
+    '''
+    Function to save account
+    '''
+    credentials.save_accounts()
 
 
 def del_user(user):
@@ -24,11 +39,25 @@ def del_user(user):
     user.delete_contact()
 
 
+def del_credentials(credentials):
+    '''
+    Function to delete a credentials
+    '''
+    credentials.delete_credentials()
+
+
 def find_user(username):
     '''
     Function that finds a contact by number and returns the contact
     '''
     return User.find_by_name(username)
+
+
+def find_account(account_name):
+    '''
+    Function that finds an account by name and returns the account_name
+    '''
+    return Credentials.find_by_name(account_name)
 
 
 def check_existing_users(username):
@@ -38,9 +67,23 @@ def check_existing_users(username):
     return User.user_exist(username)
 
 
+def check_existing_accounts(account_name):
+    '''
+    Function that check if an account exists with that number and return a Boolean
+    '''
+    return Credentials.account_exist(account_name)
+
+
 def display_users():
     '''
     Function that returns all the saved contacts
+    '''
+    return User.display_users()
+
+
+def display_accounts():
+    '''
+    Function that returns all the saved accounts
     '''
     return User.display_users()
 
@@ -52,10 +95,11 @@ def main():
     print('\n')
 
     while True:
-        print("Reply with 1,2 or 3. : cc - create a new account, in - Login, , ex -exit PassIn ")
+        print("Reply with")
         print("1.Create new account")
         print("2.Login")
-        print("3.Exit passin")
+        print("3.Search account")
+        print("4.Exit passin")
 
         answer = input()
 
@@ -70,43 +114,41 @@ def main():
             password = input()
 
             # create and save new user.
-            save_users(create_user(username, password))
+            save_user(create_user(username, password))
             print('\n')
-            print(f"New Contact {username} {password} created")
+            print(f"New user {username} {password} created")
             print('\n')
 
         elif answer == '2':
+            print("Name:")
+            login_name = input()
+            print("Password:")
+            login_password = input()
+            print('\n')
+            if login_name == username and login_password == password:
+                print(f"Hi {username} The following is a list of passwords you have saved:")
+                print(Credentials.display_accounts())
 
-            if display_users():
-                print("Here is a list of all our of all your accounts")
-                print('\n')
-
-                for user in display_users():
-                    print(
-                        f"{user.username} {user.password}")
-
-                print('\n')
-            else:
-                print('\n')
-                print("oops! our program is new we dont have any users yet")
-                print('\n')
+                # for user in display_users():
+                #     print(f"{user.username} {user.password}")
+                #     print('\n')
 
         elif answer == '3':
 
             print("Enter the account you want to search for")
-
-            search_name = input()
-            if check_existing_users(search_name):
-                search_user = find_account(search_name)
-                print(f"{search_name.username} {search_name.last_name}")
+            search_account_name = input()
+            if check_existing_users(search_account_name):
+                search_credentials = find_account(search_account_name)
+                print(
+                    f"{search_account_name.account_name} {search_account_name.account_name}")
                 print('-' * 20)
-
-                print(f"Username.......{search_user.username}")
-                print(f"Your password......{search_user.password}")
+                print(f"Username.......{search_credentials.account_name}")
+                print(
+                    f"Your password......{search_credentials.account_password}")
             else:
                 print("That user does not exist")
 
-        elif short_code == "4":
+        elif answer == '4':
             print("Bye .......")
             break
         else:
@@ -115,4 +157,4 @@ def main():
 
 if __name__ == '__main__':
 
-  main()
+    main()
