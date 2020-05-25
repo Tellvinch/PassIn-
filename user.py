@@ -67,7 +67,9 @@ class User:
         '''
         return cls.users
 
+    
     @classmethod
-    def copy_username(cls, username):
-        user_found = User.find_by_name(username)
+    def copy_username(cls,password):
+        user_found = User.find_by_name(password)
         pyperclip.copy(user_found.username)
+

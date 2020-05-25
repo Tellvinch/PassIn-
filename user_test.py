@@ -43,7 +43,6 @@ class TestUser(unittest.TestCase):
 
 # Items up here...
 
-
     def test_save_multiple_user(self):
         '''
         test_save_multiple_contact to check if we can save multiple contact
@@ -98,15 +97,6 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(User.display_users(), User.users)
 
-    def test_copy_username(self):
-        '''
-        Test to confirm that we are copying the email address from a found contact
-        '''
-        self.User1.save_user()
-        User.copy_username("Test")
-
-        self.assertEqual(self.User1.username, pyperclip.paste())
-
-
+    
 if __name__ == '__main__':
     unittest.main()
