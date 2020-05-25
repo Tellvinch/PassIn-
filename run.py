@@ -52,18 +52,21 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes : cc - create a new account, in - Login, , ex -exit PassIn ")
+        print("Reply with 1,2 or 3. : cc - create a new account, in - Login, , ex -exit PassIn ")
+        print("1.Create new account")
+        print("2.Login")
+        print("3.Exit passin")
 
-        short_code = input().lower()
+        answer = input()
 
-        if short_code == 'cc':
+        if answer == '1':
             print("New user")
             print("*"*10)
 
-            print("username:")
+            print("Username:")
             username = input()
 
-            print("password:")
+            print("Password:")
             password = input()
 
             # create and save new user.
@@ -72,10 +75,10 @@ def main():
             print(f"New Contact {username} {password} created")
             print('\n')
 
-        elif short_code == 'dc':
+        elif answer == '2':
 
             if display_users():
-                print("Here is a list of all your users")
+                print("Here is a list of all our of all your accounts")
                 print('\n')
 
                 for user in display_users():
@@ -85,16 +88,16 @@ def main():
                 print('\n')
             else:
                 print('\n')
-                print("You dont seem to have any users saved yet")
+                print("oops! our program is new we dont have any users yet")
                 print('\n')
 
-        elif short_code == 'fc':
+        elif answer == '3':
 
-            print("Enter the number you want to search for")
+            print("Enter the account you want to search for")
 
             search_name = input()
             if check_existing_users(search_name):
-                search_user = find_user(search_name)
+                search_user = find_account(search_name)
                 print(f"{search_name.username} {search_name.last_name}")
                 print('-' * 20)
 
@@ -103,7 +106,7 @@ def main():
             else:
                 print("That user does not exist")
 
-        elif short_code == "ex":
+        elif short_code == "4":
             print("Bye .......")
             break
         else:

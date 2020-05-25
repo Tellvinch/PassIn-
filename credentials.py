@@ -38,9 +38,9 @@ class Credentials:
             Contact of person that matches the number.
         '''
 
-        for user in cls.accounts:
-            if user.account_name == account_name:
-                return user
+        for credentials in cls.accounts:
+            if Credentials.account_name == account_name:
+                return credentials
 
     @classmethod
     def account_exist(cls, number):
