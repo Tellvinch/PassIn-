@@ -3,7 +3,7 @@ class Credentials:
     Class that generates new instances of contacts.
     """
 
-    accounts = [one]
+    accounts = []
  # Init method up here
 
     def save_accounts(self):

@@ -1,5 +1,6 @@
 from user import User
 from credentials import Credentials
+import random
 
 
 def create_user(username, password):
@@ -111,12 +112,15 @@ def main():
             username = input()
 
             print("Password:")
-            password = input()
+            passw = input()
+            num = random.randint(0, 1000)
+            password = (f"{passw}{num}")
 
             # create and save new user.
             save_user(create_user(username, password))
             print('\n')
-            print(f"New user {username} {password} created")
+            print(
+                f"Good job {username} your account was successfully created,we added some numbers to you password to make more unique its now {password}")
             print('\n')
 
         elif answer == '2':
@@ -126,7 +130,8 @@ def main():
             login_password = input()
             print('\n')
             if login_name == username and login_password == password:
-                print(f"Hi {username} The following is a list of passwords you have saved:")
+                print(
+                    f"Hi {username} The following is a list of passwords you have saved:")
                 print(Credentials.display_accounts())
 
                 # for user in display_users():
