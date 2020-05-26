@@ -109,7 +109,7 @@ def main():
 
     while True:
         print("Reply with")
-        print("1.Create new account")
+        print("1.Register")
         print("2.Login")
         print("3.Search account")
         print("4.Exit passin")
@@ -142,14 +142,15 @@ def main():
             print("1.Display my saved passwords")
             print("2.Add a new account and password")
             option = input()
-            if option == '1':  
+            if option == '1':
                 if display_accounts():
                     print("Here is a alist of all the accounts")
                     print("\n")
-
-                for credentials in display_accounts():
-                    print(f"Hey {credentials.account_name} your {credentials.account_password} password is safely stored!", "yellow")
-                    print("\n")
+                    for accounts in display_accounts():
+                        print(f'{accounts.account_name}---{accounts.account_password}')
+                # for accounts in display_accounts():
+                #     print(f"Hey {accounts.account_name} your {accounts.account_password} password is safely stored!", "yellow")
+                #     print("\n")
 
             else:
                 print("New account password")
@@ -160,16 +161,14 @@ def main():
 
                 print("Now enter the Password:")
                 account_password = input()
-                
+
                 # create and save new user.
                 save_accounts(create_account(account_name, account_password))
                 Credentials.save_accounts
                 print('\n')
                 print(
-                f"Good job {username} your password was successfully created and saved")
+                    f"Good job {username} your password was successfully created and saved")
                 print('\n')
-                
-
 
         elif answer == '3':
 

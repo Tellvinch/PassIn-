@@ -30,12 +30,12 @@ class Credentials:
     @classmethod
     def find_by_name(cls, account_name):
         '''
-        Method that takes in a number and returns a contact that matches that number.
+        Method that takes in a name and returns a crwdential that matches it.
 
         Args:
-            number: Phone number to search for
+            account_name: account name to search for
         Returns :
-            Contact of person that matches the number.
+            Credentials of person that matches the name.
         '''
 
         for credentials in cls.accounts:
@@ -43,16 +43,16 @@ class Credentials:
                 return credentials
 
     @classmethod
-    def account_exist(cls, number):
+    def account_exist(cls, account_name):
         '''
-        Method that checks if a contact exists from the contact list.
+        Method that checks if a account exists from the accounts list.
         Args:
-            number: Phone number to search if it exists
+            name: account name to search if it exists
         Returns :
             Boolean: True or false depending if the contact exists
         '''
         for Credentials in cls.accounts:
-            if Credentials.account_password == number:
+            if Credentials.account_name == account_name:
                 return True
 
         return False
@@ -60,7 +60,7 @@ class Credentials:
     @classmethod
     def display_accounts(cls):
         '''
-        method that returns the contact list
+        method that returns the accounts list
         '''
         return cls.accounts
 
