@@ -33,29 +33,29 @@ class User:
     @classmethod
     def find_by_name(cls, username):
         '''
-        Method that takes in a number and returns a contact that matches that number.
+        Method that takes in a name and returns a user that matches that name.
 
         Args:
-            number: Phone number to search for
+            username: nanme to search for
         Returns :
-            Contact of person that matches the number.
+            details of person that matches the name.
         '''
 
         for user in cls.users:
             if user.username == username:
-                return user
+                return user 
 
     @classmethod
-    def user_exist(cls, number):
+    def user_exist(cls, username):
         '''
-        Method that checks if a contact exists from the contact list.
+        Method that checks if a user exists from the users list.
         Args:
-            number: Phone number to search if it exists
+            name:  name to search if it exists
         Returns :
             Boolean: True or false depending if the contact exists
         '''
         for user in cls.users:
-            if user.password == number:
+            if user.username == username:
                 return True
 
         return False

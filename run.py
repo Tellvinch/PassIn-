@@ -75,7 +75,7 @@ def find_account(account_name):
 
 def check_existing_users(username):
     '''
-    Function that check if a contact exists with that number and return a Boolean
+    Function that check if a user exists with that name and return a Boolean
     '''
     return User.user_exist(username)
 
@@ -111,7 +111,7 @@ def main():
         print("Reply with")
         print("1.Register")
         print("2.Login")
-        print("3.Search account")
+        print("3.Search user")
         print("4.Exit passin")
 
         answer = input()
@@ -144,13 +144,10 @@ def main():
             option = input()
             if option == '1':
                 if display_accounts():
-                    print("Here is a alist of all the accounts")
-                    print("\n")
+                    print("Here is a a list of all the accounts you have saved")
                     for accounts in display_accounts():
-                        print(f'{accounts.account_name}---{accounts.account_password}')
-                # for accounts in display_accounts():
-                #     print(f"Hey {accounts.account_name} your {accounts.account_password} password is safely stored!", "yellow")
-                #     print("\n")
+                        print(f'{accounts.account_name}-----{accounts.account_password}')
+               
 
             else:
                 print("New account password")
@@ -173,15 +170,15 @@ def main():
         elif answer == '3':
 
             print("Enter the account you want to search for")
-            search_account_name = input()
-            if check_existing_users(search_account_name):
-                search_credentials = find_account(search_account_name)
+            search_username = input()
+            if find_user(search_username):
+                search_user = User.find_by_name(search_username)
                 print(
-                    f"{search_account_name.account_name} {search_account_name.account_name}")
+                    f"{search_user.username} {search_user.password}")
                 print('-' * 20)
-                print(f"Username.......{search_credentials.account_name}")
+                print(f"Username.......{search_user.username}")
                 print(
-                    f"Your password......{search_credentials.account_password}")
+                    f"Your password......{search_user.password}")
             else:
                 print("That user does not exist")
 
