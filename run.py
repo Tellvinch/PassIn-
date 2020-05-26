@@ -142,10 +142,14 @@ def main():
             print("1.Display my saved passwords")
             print("2.Add a new account and password")
             option = input()
-            if option == '1':
-                print("The following is a list of the passwords you have saved:")
-                display_accounts()
-                Credentials.display_accounts()
+            if option == '1':  
+                if display_accounts():
+                    print("Here is a alist of all the accounts")
+                    print("\n")
+
+                for credentials in display_accounts():
+                    print(f"Hey {credentials.account_name} your {credentials.account_password} password is safely stored!", "yellow")
+                    print("\n")
 
             else:
                 print("New account password")
@@ -164,6 +168,8 @@ def main():
                 print(
                 f"Good job {username} your password was successfully created and saved")
                 print('\n')
+                
+
 
         elif answer == '3':
 
