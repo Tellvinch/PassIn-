@@ -1,6 +1,6 @@
 class Credentials:
     """
-    Class that generates new instances of contacts.
+    Class that generates new instances of accountss.
     """
 
     accounts = []
@@ -8,7 +8,7 @@ class Credentials:
 
     def save_accounts(self):
         '''
-        save_contact method saves contact objects into contact_list
+        save_contact method saves credentials objects into accounts
         '''
 
         Credentials.accounts.append(self)

@@ -26,11 +26,11 @@ def save_user(user):
     user.save_user()
 
 
-def save_accounts(credentials):
+def save_accounts(self):
     '''
     Function to save account
     '''
-    credentials.save_accounts()
+    Credentials.save_accounts(self)
 
 
 def login(user):
@@ -146,8 +146,8 @@ def main():
                 if display_accounts():
                     print("Here is a a list of all the accounts you have saved")
                     for accounts in display_accounts():
-                        print(f'{accounts.account_name}-----{accounts.account_password}')
-               
+                        print(
+                            f'{accounts.account_name}-----{accounts.account_password}')
 
             else:
                 print("New account password")
@@ -158,14 +158,14 @@ def main():
 
                 print("Now enter the Password:")
                 account_password = input()
-
-                # create and save new user.
                 save_accounts(create_account(account_name, account_password))
                 Credentials.save_accounts
                 print('\n')
                 print(
                     f"Good job {username} your password was successfully created and saved")
                 print('\n')
+
+                
 
         elif answer == '3':
 
