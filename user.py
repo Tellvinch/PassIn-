@@ -67,6 +67,14 @@ class User:
         '''
         return cls.users
 
+    def login(self):
+        """
+        This method checks if a user object exists in the users list
+        """
+        if User in User.users:
+            print(User)
+            return User
+
     
     @classmethod
     def copy_username(cls,password):

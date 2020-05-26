@@ -13,9 +13,9 @@ def create_user(username, password):
 
 def create_account(account_name, account_password):
     '''
-    Function to create a new user
+    Function to create a new account
     '''
-    new_account = User(account_name, account_password)
+    new_account = Credentials(account_name, account_password)
     return new_account
 
 
@@ -33,6 +33,18 @@ def save_accounts(credentials):
     credentials.save_accounts()
 
 
+def login(user):
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+    User1 = User(username, password)
+
+    if User1 is not None:
+        user.login
+        print(f"Welcome {username}! You're now Logged In")
+    else:
+        print("Invalid Username or Password.")
+
+
 def del_user(user):
     '''
     Function to delete a user
@@ -42,7 +54,7 @@ def del_user(user):
 
 def del_credentials(credentials):
     '''
-    Function to delete a credentials
+    Function to delete an account
     '''
     credentials.delete_credentials()
 
@@ -75,7 +87,7 @@ def check_existing_accounts(account_name):
     return Credentials.account_exist(account_name)
 
 
-def display_users():
+def display_users(user):
     '''
     Function that returns all the saved contacts
     '''
@@ -86,7 +98,7 @@ def display_accounts():
     '''
     Function that returns all the saved accounts
     '''
-    return User.display_users()
+    return Credentials.display_accounts()
 
 
 def main():
@@ -118,25 +130,40 @@ def main():
 
             # create and save new user.
             save_user(create_user(username, password))
+            User.save_user
             print('\n')
             print(
                 f"Good job {username} your account was successfully created,we added some numbers to you password to make more unique its now {password}")
             print('\n')
 
         elif answer == '2':
-            print("Name:")
-            login_name = input()
-            print("Password:")
-            login_password = input()
-            print('\n')
-            if login_name == username and login_password == password:
-                print(
-                    f"Hi {username} The following is a list of passwords you have saved:")
-                print(Credentials.display_accounts())
+            login(User)
+            print("Reply with:")
+            print("1.Display my saved passwords")
+            print("2.Add a new account and password")
+            option = input()
+            if option == '1':
+                print("The following is a list of the passwords you have saved:")
+                display_accounts()
+                Credentials.display_accounts()
 
-                # for user in display_users():
-                #     print(f"{user.username} {user.password}")
-                #     print('\n')
+            else:
+                print("New account password")
+                print("*"*10)
+
+                print("Password for:")
+                account_name = input()
+
+                print("Now enter the Password:")
+                account_password = input()
+                
+                # create and save new user.
+                save_accounts(create_account(account_name, account_password))
+                Credentials.save_accounts
+                print('\n')
+                print(
+                f"Good job {username} your password was successfully created and saved")
+                print('\n')
 
         elif answer == '3':
 
